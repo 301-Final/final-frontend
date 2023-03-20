@@ -116,6 +116,43 @@ const ItemModel = mongoose.model('Item', itemSchema);
 module.exports = ItemModel;
 
 
+
+## User Stories
+1. User Story 1
+a. Login
+b. As a user, I would like the ability to log in, to retrieve my personal items and have a
+custom experience.
+c. Implement Auth0 and allow personal data to be linked to each users unique email
+address
+d. Successfully logging in / logging out, as well as saving data properly per user
+2. User Story 2
+a. Data Tracking
+b. As a user, I would like to be able to keep track of my personal items, which may
+include a link to their purchase and details.
+c. Using react-bootstrap, we will utilize certain components to structure our page which
+neatly and accurately displays data
+d. Organized data rendering successfully and appending to table
+3. User Story 3
+a. Add Items
+b. As a user, I would like the ability to add new items to my database.
+c. Implement add function using CRUD and REST methodology
+d. Ability to add new items, which display properly with the other data
+4. User Story 4
+a. Remove / Update items
+b. As a user, I would like the ability to remove items or update items I have already
+stored.
+c. Implement delete / update function using CRUD and REST methodology
+d. Ability to remove / update items, which displays
+5. User Story 5
+a. Categories
+b. As a user, I think it would be nice to separate my database items based on different
+categories to have a more organized experience
+c. Create separate components and CRUD / REST to add new categories which may
+display task within that category or displays all categories
+d. Ability to add new categories and separate data based on category
+
+
+
 ## Resources
 1. [Presentation Deck Template](https://docs.google.com/presentation/d/1NeXKKEpjK2DDme8EwlZBsJndUqIgGYzWrY6FAYtNTf0/edit#slide=id.g2accd1c413_3_31)
 2. [Trello](https://trello.com/b/fdsJJxC8/301-final-project)
