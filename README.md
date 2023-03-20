@@ -103,6 +103,18 @@
 
 ![wrrc](wrrc/301FinalWireFrame.jpg)
 
+## Database Schema
+'use strict'
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
+const itemSchema = new Schema({
+  category: {type: String, required: true},
+  itemName:  {type: String, required: true},
+  links: {type: Boolean, required: true},
+});
+const ItemModel = mongoose.model('Item', itemSchema);
+module.exports = ItemModel;
+
 
 ## Resources
 1. [Presentation Deck Template](https://docs.google.com/presentation/d/1NeXKKEpjK2DDme8EwlZBsJndUqIgGYzWrY6FAYtNTf0/edit#slide=id.g2accd1c413_3_31)
