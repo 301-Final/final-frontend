@@ -99,6 +99,9 @@
 
 
 ## WRRC
+![wrrc](wrrc/301FinalWRRC.jpg)
+
+![wrrc](wrrc/301FinalWireFrame.jpg)
 
 
 ## Resources
