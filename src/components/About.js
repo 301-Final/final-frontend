@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs, Tab, Modal, Card } from 'react-bootstrap'
+import { Tabs, Tab, Card } from 'react-bootstrap'
 
 class About extends React.Component {
 
