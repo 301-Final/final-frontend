@@ -50,9 +50,10 @@ class Items extends React.Component {
     console.log(e.target.links.value);
     let newItem = {
       category: e.target.category.value,
-      description: e.target.itemName.value,
-      status: e.target.links.value,
+      itemName: e.target.itemName.value,
+      links: e.target.links.value,
     }
+    console.log(newItem);
     this.setState({
       showAddItemModal: false,
     })
@@ -85,10 +86,11 @@ class Items extends React.Component {
     }
   }
 
-  handleUpdateItem = (i) => {
+  handleUpdateItem = (item) => {
+    console.log(item);
     this.setState({
       showUpdateItemModal: true,
-      currentItem: i,
+      currentItem: item,
     })
   }
 
@@ -116,10 +118,10 @@ class Items extends React.Component {
     
     // try {
       if (this.props.auth0.isAuthenticated) {
-        console.log('getItems function is good');
+        //console.log('getItems function is good');
         const res = await this.props.auth0.getIdTokenClaims();
         const jwt = res.__raw;
-        console.log(jwt);
+        //console.log(jwt);
         const config = {
           method: 'get',
           baseURL: process.env.REACT_APP_SERVER,
@@ -144,13 +146,12 @@ class Items extends React.Component {
 
   componentDidMount() {
     this.getItems();
-    console.log('componentDidMount ok');
+    //console.log('componentDidMount ok');
   }
 
 
   render() {
-    console.log('Items page is working');
-
+    console.log(this.state.items);
     let itemsToTable = this.state.items.map(
       item => {
         return (
@@ -161,7 +162,7 @@ class Items extends React.Component {
             <td>{item.links}</td>
             <td>
               <Button variant="outline-warning" onClick={()=>this.deleteItem(item._id)}>Delete Item</Button>
-              <Button variant="outline-dark" onClick={()=>this.handleUpdateItem(item._id)}>Update Item</Button></td>
+              <Button variant="outline-dark" onClick={()=>this.handleUpdateItem(item)}>Update Item</Button></td>
           </tr>
         )
       }
