@@ -5,7 +5,7 @@ import Items from './Items';
 class Catalog extends React.Component {
 
   render() {
-    console.log('Catalog page is working');
+    //console.log('Catalog page is working');
     return (
       <>
       {this.props.auth0.isAuthenticated ?
