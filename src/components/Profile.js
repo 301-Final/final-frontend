@@ -16,7 +16,6 @@ const Profile = () => {
         <ListGroup.Item variant="warning"><img src={user.picture} alt={user.name} /></ListGroup.Item>
         <ListGroup.Item variant="success">{user.name}</ListGroup.Item>
         <ListGroup.Item>{user.email}</ListGroup.Item>
-
       </ListGroup>
 
     )
