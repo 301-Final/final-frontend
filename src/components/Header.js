@@ -8,17 +8,21 @@ import LogoutButton from './Logout';
 class Header extends React.Component {
   render() {
     return (
-    <>
-      <Navbar collapseOnSelect expand="lg" bg="primary" variant="light">
-        <Navbar.Brand>Shit Collector</Navbar.Brand>
-        <NavItem><Link to="/" className="nav-link">Home</Link></NavItem>
-        <NavItem><Link to="/catalog" className="nav-link">View Catalog</Link></NavItem>
-        <NavItem><Link to="/about" className="nav-link">About Us</Link></NavItem>
-        {this.props.auth0.isAuthenticated ? <LogoutButton/> : <LoginButton/>}
-        {
-                this.props.auth0.isAuthenticated && <NavItem><Link to="/profile" className="nav-link">Profile</Link></NavItem>}
-      </Navbar>
-    </>
+      <>
+        <Navbar collapseOnSelect expand="lg" bg="primary" variant="light">
+          <div className="logo">
+            <Navbar.Brand>Crap Collector</Navbar.Brand>
+            <p>Your Own Personal Database</p>
+          </div>
+          <div className="navItems">
+            <NavItem><Link to="/" className="nav-link">Home</Link></NavItem>
+            <NavItem><Link to="/about" className="nav-link">About Us</Link></NavItem>
+            {this.props.auth0.isAuthenticated ? <LogoutButton /> : <LoginButton />}
+            {
+              this.props.auth0.isAuthenticated && <NavItem><Link to="/profile" className="nav-link">Profile</Link></NavItem>}
+          </div>
+        </Navbar>
+      </>
     )
   }
 }
