@@ -5,7 +5,7 @@ class Footer extends React.Component {
 
     return (
       <>
-        <footer>&copy Michael Dulin, Cody Lobdell, Kirill Lesnykh</footer>
+        <footer>&copy; Michael Dulin, Cody Lobdell, Kirill Lesnykh</footer>
       </>
     );
   }
