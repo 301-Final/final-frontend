@@ -11,7 +11,8 @@ class UpdateItemModal extends React.Component {
       itemName: e.target.itemName.value || this.props.item.itemName,
       links: e.target.links.value || this.props.item.links,
       _id: this.props.item._id,
-      __v: this.props.item.__v
+      __v: this.props.item.__v,
+      email: this.props.item.email
     }
 
     this.props.updateItem(itemToUpdate);
