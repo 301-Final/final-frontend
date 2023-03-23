@@ -48,6 +48,7 @@ class About extends React.Component {
           </Carousel>
         </article>
         <article className="tools">
+          <h2>Tools</h2>
           <img
             src="./images/javascript.jpg"
             alt="javascript"
