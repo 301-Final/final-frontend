@@ -11,7 +11,8 @@ class UpdateItemModal extends React.Component {
       itemName: e.target.itemName.value || this.props.item.itemName,
       links: e.target.links.value || this.props.item.links,
       _id: this.props.item._id,
-      __v: this.props.item.__v
+      __v: this.props.item.__v,
+      email: this.props.item.email
     }
 
     this.props.updateItem(itemToUpdate);
@@ -21,7 +22,7 @@ class UpdateItemModal extends React.Component {
     console.log(this.props.item.itemName);
     return (
       <>
-      <Modal show={this.props.openUpdateItemModal} onHide={this.props.closeUpdateItemModal}>
+      <Modal show={this.props.handleOpenUpdateItemModal} onHide={this.props.handleCloseUpdateItemModal}>
           <Modal.Header closeButton>
             <Modal.Title>Update your Item</Modal.Title>
           </Modal.Header>
@@ -36,7 +37,8 @@ class UpdateItemModal extends React.Component {
                 <Form.Control type="text" placeholder={this.props.item.itemName} />
               </Form.Group>
               <Form.Group controlId="links">
-                <Form.Check type="text" placeholder={this.props.item.links} />
+                <Form.Label>Links</Form.Label>
+                <Form.Control type="text" placeholder={this.props.item.links} />
               </Form.Group>
               <Button variant="primary" type="submit">
                 Update Item
