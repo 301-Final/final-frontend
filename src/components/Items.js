@@ -48,10 +48,12 @@ class Items extends React.Component {
     console.log(e.target.category.value);
     console.log(e.target.itemName.value);
     console.log(e.target.links.value);
+    console.log(this.props.auth0.user.email);
     let newItem = {
       category: e.target.category.value,
       itemName: e.target.itemName.value,
       links: e.target.links.value,
+      email: this.props.auth0.user.email
     }
     console.log(newItem);
     this.setState({
@@ -64,7 +66,7 @@ class Items extends React.Component {
     try {
       let url = `${process.env.REACT_APP_SERVER}/items`;
       let createdItem = await axios.post(url, newItem);
-      console.log(createdItem.data);
+      //console.log(createdItem.data);
       this.setState({
         items: [...this.state.items, createdItem.data]
       })
@@ -87,7 +89,7 @@ class Items extends React.Component {
   }
 
   handleUpdateItem = (item) => {
-    console.log(item);
+    //console.log(item);
     this.setState({
       showUpdateItemModal: true,
       currentItem: item,
@@ -114,8 +116,6 @@ class Items extends React.Component {
   }
 
   getItems = async () => {
-
-    
     // try {
       if (this.props.auth0.isAuthenticated) {
         //console.log('getItems function is good');
@@ -131,8 +131,7 @@ class Items extends React.Component {
           }
         }
         let results = await axios(config);
-        console.log(results.data);
-        // let results = await axios.get(`${process.env.REACT_APP_SERVER}/items`);
+        //console.log(results.data);
         this.setState({
           items: results.data,
           noItem: false,
@@ -151,11 +150,11 @@ class Items extends React.Component {
 
 
   render() {
-    console.log(this.state.items);
+    //console.log(this.state.items);
     let itemsToTable = this.state.items.map(
       item => {
         return (
-          <tr>
+          <tr key={item._id}>
             <td>-</td>
             <td>{item.category}</td>
             <td>{item.itemName}</td>
