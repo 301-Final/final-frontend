@@ -50,28 +50,64 @@ class About extends React.Component {
         <article className="tools">
           <h2>Tools</h2>
           <img
-            src="./images/javascript.jpg"
+            src="./images/javascript.png"
             alt="javascript"
           />
           <img
-            src="./images/css3.jpg"
+            src="./images/css3.png"
             alt="css3"
           />
           <img
-            src="./images/html5.jpg"
+            src="./images/html5.png"
             alt="html5"
           />
           <img
-            src="./images/mongodb.jpg"
+            src="./images/mongodb.png"
             alt="mongodb"
           />
           <img
-            src="./images/bootstrap.jpg"
+            src="./images/bootstrap.png"
             alt="bootstrap"
           />
           <img
-            src="./images/github.jpg"
+            src="./images/github.png"
             alt="github"
+          />
+          <img
+            src="./images/eslint.png"
+            alt="eslint"
+          />
+          <img
+            src="./images/express.png"
+            alt="express"
+          />
+          <img
+            src="./images/git.png"
+            alt="mongodb"
+          />
+          <img
+            src="./images/nodejs.png"
+            alt="nodejs"
+          />
+          <img
+            src="./images/npm.png"
+            alt="npm"
+          />
+          <img
+            src="./images/react.png"
+            alt="react"
+          />
+          <img
+            src="./images/slack.png"
+            alt="slack"
+          />
+          <img
+            src="./images/ubuntu.png"
+            alt="ubuntu"
+          />
+          <img
+            src="./images/vscode.png"
+            alt="vscode"
           />
         </article>
       </>
