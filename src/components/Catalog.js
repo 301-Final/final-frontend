@@ -1,6 +1,7 @@
 import { withAuth0 } from "@auth0/auth0-react";
 import React from 'react';
 import Items from './Items';
+import ImBored from './ImBored'
 
 class Catalog extends React.Component {
 
@@ -9,7 +10,10 @@ class Catalog extends React.Component {
     return (
       <>
       {this.props.auth0.isAuthenticated ?
-        <Items />
+        <>
+          <Items />
+          <ImBored/>
+        </>
         :
         <h3>Please Log In</h3>}
       </>
