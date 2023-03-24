@@ -6,6 +6,7 @@ import { Table, Button, Accordion } from 'react-bootstrap';
 import { withAuth0 } from "@auth0/auth0-react";
 import './Items.css';
 
+
 class Items extends React.Component {
   constructor(props) {
     super(props);
@@ -195,26 +196,26 @@ class Items extends React.Component {
     let accordionItems = [];
     for (let i in allItemsHeaders) {
       accordionItems.push(
-        <div className="items">
-        <Accordion.Item eventKey={i}>
-          <Accordion.Header>{allItemsHeaders[i]}</Accordion.Header>
-          <Accordion.Body>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Item Category</th>
-                  <th>Item Name</th>
-                  <th>Link(s)</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {allItemsToTable[i]}
-              </tbody>
-            </Table>
-          </Accordion.Body>
-        </Accordion.Item>
-    </div>
+        
+          <Accordion.Item eventKey={i}>
+            <Accordion.Header>{allItemsHeaders[i]}</Accordion.Header>
+            <Accordion.Body>
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Item Category</th>
+                    <th>Item Name</th>
+                    <th>Link(s)</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {allItemsToTable[i]}
+                </tbody>
+              </Table>
+            </Accordion.Body>
+          </Accordion.Item>
+        
       )
     }
 
@@ -232,15 +233,17 @@ class Items extends React.Component {
           : (
             <h3>You currently have no items.</h3>
           )}
-
-        <Button variant="outline-success" onClick={this.handleOpenAddItemModal}>Add an Item</Button>
-        {this.state.showAddItemModal ?
-          <AddItemModal
-            handleAddItemSubmit={this.handleAddItemSubmit}
-            handleCloseAddItemModal={this.handleCloseAddItemModal}
-            handleOpenAddItemModal={this.handleOpenAddItemModal}
-          /> :
-          <></>
+        
+          <Button className="addButton" variant="outline-success" onClick={this.handleOpenAddItemModal}>Add an Item</Button>
+          {this.state.showAddItemModal ?
+            <AddItemModal
+              handleAddItemSubmit={this.handleAddItemSubmit}
+              handleCloseAddItemModal={this.handleCloseAddItemModal}
+              handleOpenAddItemModal={this.handleOpenAddItemModal}
+              
+            /> :
+            <></>
+            
         }
         {this.state.showUpdateItemModal ?
           <UpdateItemModal
@@ -252,7 +255,7 @@ class Items extends React.Component {
           <></>
         }
       </>
-
+      
     )
   }
 }

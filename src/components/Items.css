@@ -1,5 +1,27 @@
-.items {
-  margin: auto;
-  width: 1000px;
+.catalogBody {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
   padding: 1px;
+  text-align: center;
+}
+
+.bored {
+  margin: auto;
+  width: 300px;
+  padding: 10px;
+  text-align: center;
+  margin-top: 75px;
+}
+
+.addButton{
+  margin: auto;
+  width: 150px;
+  padding: 10px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.catalogBody h2 {
+  padding-top: 1rem;
 }

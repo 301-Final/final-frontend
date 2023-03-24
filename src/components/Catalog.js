@@ -2,6 +2,7 @@ import { withAuth0 } from "@auth0/auth0-react";
 import React from 'react';
 import Items from './Items';
 import ImBored from './ImBored'
+import './Items.css'
 
 class Catalog extends React.Component {
 
@@ -9,13 +10,15 @@ class Catalog extends React.Component {
     //console.log('Catalog page is working');
     return (
       <>
-      {this.props.auth0.isAuthenticated ?
-        <>
-          <Items />
-          <ImBored/>
-        </>
-        :
-        <h3>Please Log In</h3>}
+        {this.props.auth0.isAuthenticated ?
+          <>
+            <div className="catalogBody">
+              <Items />
+              <ImBored />
+            </div>
+          </>
+          :
+          <h3>Please Log In</h3>}
       </>
     )
   }
