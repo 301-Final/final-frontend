@@ -151,7 +151,7 @@ class Items extends React.Component {
         <td>{item.category}</td>
         <td>{item.itemName}</td>
         <td>{item.links}</td>
-        <td>
+        <td className="actionButtons">
           <Button variant="outline-warning" onClick={() => this.deleteItem(item._id)}>Delete Item</Button>
           <Button variant="outline-dark" onClick={() => this.handleUpdateItem(item)}>Update Item</Button></td>
       </tr>
@@ -225,7 +225,7 @@ class Items extends React.Component {
 
         <h2>My Items</h2>
         {this.state.items.length ? (
-          <Accordion defaultActiveKey="0">
+          <Accordion defaultActiveKey="0" className="catalog">
             {accordionItems}
           </Accordion>
 
