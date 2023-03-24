@@ -12,12 +12,13 @@ const Profile = () => {
 
   return (
     isAuthenticated && (
-
+      <div className="profile">
       <ListGroup>
         <ListGroup.Item variant="warning"><img src={user.picture} alt={user.name} /></ListGroup.Item>
         <ListGroup.Item variant="success">{user.name}</ListGroup.Item>
         <ListGroup.Item>{user.email}</ListGroup.Item>
       </ListGroup>
+      </div>
 
     )
   );
