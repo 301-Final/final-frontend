@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   display: grid;
@@ -10,10 +11,11 @@ body {
 .list-group-item+.list-group-item {
   border-bottom-width: 5px;
   text-align: center;
-  border-top-left-radius: 50px 50px;
-  border-top-right-radius: 50px 50px;
-  border-bottom-left-radius: 50px 50px;
-  border-bottom-right-radius: 50px 50px;
+  font-family: 'Climate Crisis', cursive;
+  font-family: 'Roboto', sans-serif;
+  margin-top: .25rem;
+  border-radius: 10px 10px;
+
 }
 
 img,
@@ -21,6 +23,8 @@ svg {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
   width: 30%;
   outline: 8px ridge rgb(168, 209, 227);
   border-radius: 2rem;
@@ -42,17 +46,22 @@ svg {
 
 .list-group-item.list-group-item-success {
   text-align: center;
-  border-top-left-radius: 50px 50px;
-  border-top-right-radius: 50px 50px;
-  border-bottom-left-radius: 50px 50px;
-  border-bottom-right-radius: 50px 50px;
+  font-family: 'Climate Crisis', cursive;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 1rem;
+  border-radius: 10px 10px;
 }
 
 .list-group-item:first-child {
   border-bottom-width: 5px;
-  border-top-left-radius: 50px 50px;
-  border-top-right-radius: 50px 50px;
-  border-bottom-left-radius: 50px 50px;
-  border-bottom-right-radius: 50px 50px;
+  margin-top: 1rem;
+  border-radius: 10px 10px;
+}
+
+footer {
+  margin-top: 21rem;
+  bottom: 0;
+  height: 2.5rem;
+  text-align: center;
 }
 
