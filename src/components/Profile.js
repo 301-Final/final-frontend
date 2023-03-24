@@ -20,7 +20,6 @@ const Profile = () => {
           <ListGroup.Item>{user.email}</ListGroup.Item>
         </ListGroup>
       </div>
-    
     )
   );
 };
