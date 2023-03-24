@@ -1,6 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
+import './ImBored.css';
 
 class ImBored extends React.Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class ImBored extends React.Component {
   render() {
 
     return (
+      <div className="bored">
       <Card style={{ width: '18rem' }}>
         <Card.Body>
           <Card.Title>Bored?</Card.Title>
@@ -41,6 +43,7 @@ class ImBored extends React.Component {
           <Button variant="primary" onClick={this.handleSubmit}>Another Activity</Button>
         </Card.Body>
       </Card>
+      </div>
     )
   }
 }
