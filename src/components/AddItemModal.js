@@ -14,7 +14,14 @@ class AddItemModal extends React.Component {
             <Form onSubmit={this.props.handleAddItemSubmit}>
               <Form.Group controlId="category">
                 <Form.Label>Category</Form.Label>
-                <Form.Control type="text" placeholder="Item Category" />
+                <Form.Select> 
+                  <option>Car</option>
+                  <option>Bathroom</option>
+                  <option>Kitchen</option>
+                  <option>Food</option>
+                  <option>House</option>
+                  <option>Other</option>
+                </Form.Select>
               </Form.Group>
               <Form.Group controlId="itemName">
                 <Form.Label>Item Name</Form.Label>
