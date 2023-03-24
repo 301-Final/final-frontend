@@ -30,7 +30,14 @@ class UpdateItemModal extends React.Component {
             <Form onSubmit={this.handleSubmit}>
               <Form.Group controlId="category">
                 <Form.Label>Item Category</Form.Label>
-                <Form.Control type="text" placeholder={this.props.item.category} />
+                <Form.Select> 
+                  <option>Car</option>
+                  <option>Bathroom</option>
+                  <option>Kitchen</option>
+                  <option>Food</option>
+                  <option>House</option>
+                  <option>Other</option>
+                </Form.Select>
               </Form.Group>
               <Form.Group controlId="itemName">
                 <Form.Label>Item Name</Form.Label>

@@ -2,8 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import AddItemModal from './AddItemModal';
 import UpdateItemModal from './UpdateItemModal';
-import { Table, Button } from 'react-bootstrap';
+import { Table, Button, Accordion } from 'react-bootstrap';
 import { withAuth0 } from "@auth0/auth0-react";
+import './Items.css';
+
 
 class Items extends React.Component {
   constructor(props) {
@@ -117,29 +119,43 @@ class Items extends React.Component {
 
   getItems = async () => {
     // try {
-      if (this.props.auth0.isAuthenticated) {
-        //console.log('getItems function is good');
-        const res = await this.props.auth0.getIdTokenClaims();
-        const jwt = res.__raw;
-        //console.log(jwt);
-        const config = {
-          method: 'get',
-          baseURL: process.env.REACT_APP_SERVER,
-          url: '/items',
-          headers: {
-            "Authorization": `Bearer ${jwt}`
-          }
+    if (this.props.auth0.isAuthenticated) {
+      //console.log('getItems function is good');
+      const res = await this.props.auth0.getIdTokenClaims();
+      const jwt = res.__raw;
+      //console.log(jwt);
+      const config = {
+        method: 'get',
+        baseURL: process.env.REACT_APP_SERVER,
+        url: '/items',
+        headers: {
+          "Authorization": `Bearer ${jwt}`
         }
-        let results = await axios(config);
-        //console.log(results.data);
-        this.setState({
-          items: results.data,
-          noItem: false,
-        })
-      } else{ console.log('getItems function error'); }
+      }
+      let results = await axios(config);
+      //console.log(carItems);
+      //console.log(results.data);
+      this.setState({
+        items: results.data,
+        noItem: false,
+      })
+    } else { console.log('getItems function error'); }
     // } catch (error) {
     //   console.log('there is an error: ', error.response.data)
     // }
+  }
+
+  itemToTableRow = (item) => {
+    return (
+      <tr key={item._id}>
+        <td>{item.category}</td>
+        <td>{item.itemName}</td>
+        <td>{item.links}</td>
+        <td className="actionButtons">
+          <Button variant="outline-warning" onClick={() => this.deleteItem(item._id)}>Delete Item</Button>
+          <Button variant="outline-dark" onClick={() => this.handleUpdateItem(item)}>Update Item</Button></td>
+      </tr>
+    )
   }
 
 
@@ -151,21 +167,57 @@ class Items extends React.Component {
 
   render() {
     //console.log(this.state.items);
-    let itemsToTable = this.state.items.map(
-      item => {
-        return (
-          <tr key={item._id}>
-            <td>-</td>
-            <td>{item.category}</td>
-            <td>{item.itemName}</td>
-            <td>{item.links}</td>
-            <td>
-              <Button variant="outline-warning" onClick={()=>this.deleteItem(item._id)}>Delete Item</Button>
-              <Button variant="outline-dark" onClick={()=>this.handleUpdateItem(item)}>Update Item</Button></td>
-          </tr>
-        )
-      }
-    );
+    //Car Items
+    let carItems = this.state.items.filter(item => item.category === 'Car');
+    let carItemsToTable = carItems.map(item => this.itemToTableRow(item));
+
+    //Bathroom Items
+    let bathItems = this.state.items.filter(item => item.category === 'Bathroom');
+    let bathItemsToTable = bathItems.map(item => this.itemToTableRow(item));
+
+    //Kitchen Items
+    let kitchenItems = this.state.items.filter(item => item.category === 'Kitchen');
+    let kitchenItemsToTable = kitchenItems.map(item => this.itemToTableRow(item));
+
+    //Food Items
+    let foodItems = this.state.items.filter(item => item.category === 'Food');
+    let foodItemsToTable = foodItems.map(item => this.itemToTableRow(item));
+
+    //House Items
+    let houseItems = this.state.items.filter(item => item.category === 'House');
+    let houseItemsToTable = houseItems.map(item => this.itemToTableRow(item));
+
+    //Other Items
+    let otherItems = this.state.items.filter(item => item.category === 'Other');
+    let otherItemsToTable = otherItems.map(item => this.itemToTableRow(item));
+
+    let allItemsHeaders = ['Car', 'Bathroom', 'Kitchen', 'Food', 'House', 'Other'];
+    let allItemsToTable = [carItemsToTable, bathItemsToTable, kitchenItemsToTable, foodItemsToTable, houseItemsToTable, otherItemsToTable]
+    let accordionItems = [];
+    for (let i in allItemsHeaders) {
+      accordionItems.push(
+        
+          <Accordion.Item eventKey={i}>
+            <Accordion.Header>{allItemsHeaders[i]}</Accordion.Header>
+            <Accordion.Body>
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Item Category</th>
+                    <th>Item Name</th>
+                    <th>Link(s)</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {allItemsToTable[i]}
+                </tbody>
+              </Table>
+            </Accordion.Body>
+          </Accordion.Item>
+        
+      )
+    }
 
     return (
 
@@ -173,33 +225,25 @@ class Items extends React.Component {
 
         <h2>My Items</h2>
         {this.state.items.length ? (
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Item Category</th>
-                <th>Item Name</th>
-                <th>Link(s)</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {itemsToTable}
-            </tbody>
-          </Table>
+          <Accordion defaultActiveKey="0" className="catalog">
+            {accordionItems}
+          </Accordion>
+
         )
           : (
             <h3>You currently have no items.</h3>
           )}
-
-        <Button variant="outline-success" onClick={this.handleOpenAddItemModal}>Add an Item</Button>
-        {this.state.showAddItemModal ?
-          <AddItemModal
-            handleAddItemSubmit={this.handleAddItemSubmit}
-            handleCloseAddItemModal={this.handleCloseAddItemModal}
-            handleOpenAddItemModal={this.handleOpenAddItemModal}
-          /> :
-          <></>
+        
+          <Button className="addButton" variant="outline-success" onClick={this.handleOpenAddItemModal}>Add an Item</Button>
+          {this.state.showAddItemModal ?
+            <AddItemModal
+              handleAddItemSubmit={this.handleAddItemSubmit}
+              handleCloseAddItemModal={this.handleCloseAddItemModal}
+              handleOpenAddItemModal={this.handleOpenAddItemModal}
+              
+            /> :
+            <></>
+            
         }
         {this.state.showUpdateItemModal ?
           <UpdateItemModal
@@ -211,7 +255,7 @@ class Items extends React.Component {
           <></>
         }
       </>
-
+      
     )
   }
 }

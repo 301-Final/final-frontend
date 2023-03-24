@@ -1,0 +1,35 @@
+.catalogBody {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  text-align: center;
+}
+
+.catalog    {
+  box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.2);
+}
+
+.bored {
+  margin: auto;
+  width: 300px;
+  padding: 10px;
+  text-align: center;
+  margin-top: 75px;
+}
+
+.addButton{
+  margin: auto;
+  width: 150px;
+  padding: 10px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.catalogBody h2 {
+  padding: 2rem;
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: space-around;
+}
