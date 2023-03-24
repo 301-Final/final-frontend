@@ -12,13 +12,15 @@ const Profile = () => {
 
   return (
     isAuthenticated && (
-
-      <ListGroup>
-        <ListGroup.Item variant="warning"><img src={user.picture} alt={user.name} /></ListGroup.Item>
-        <ListGroup.Item variant="success">{user.name}</ListGroup.Item>
-        <ListGroup.Item>{user.email}</ListGroup.Item>
-      </ListGroup>
-
+      <div className="profile">
+        <h3>Welcome, {user.name}!</h3>
+        <ListGroup>
+          <ListGroup.Item variant="warning"><img src={user.picture} alt={user.name} /></ListGroup.Item>
+          <ListGroup.Item variant="success">{user.name}</ListGroup.Item>
+          <ListGroup.Item>{user.email}</ListGroup.Item>
+        </ListGroup>
+      </div>
+    
     )
   );
 };

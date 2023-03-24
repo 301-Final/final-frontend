@@ -7,16 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-main {
-  background: rgb(94,114,240);
-  background: linear-gradient(90deg, rgba(94,114,240,1) 6%, rgba(221,255,249,1) 50%, rgba(94,114,240,1) 94%);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 2rem;
-}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
