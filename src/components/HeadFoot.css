@@ -12,6 +12,10 @@ footer {
   line-height: 1.1;
 }
 
+header {
+  background-color: aqua;
+}
+
 .title {
   font-size: 35px;
   font-weight: 600;
@@ -23,6 +27,7 @@ footer {
   align-items: space-between;
   margin-right: 1rem;
   gap: 20px;
+  color: white;
 }
 
 .nav-link{
