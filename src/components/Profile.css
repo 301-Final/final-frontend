@@ -1,9 +1,58 @@
 body {
   margin: 0;
-  min-height: 0vh;
   display: grid;
   grid-auto-flow: column;
   place-content: center;
   background: #b6e2fd;
+
+}
+
+.list-group-item+.list-group-item {
+  border-bottom-width: 5px;
+  text-align: center;
+  border-top-left-radius: 50px 50px;
+  border-top-right-radius: 50px 50px;
+  border-bottom-left-radius: 50px 50px;
+  border-bottom-right-radius: 50px 50px;
+}
+
+img,
+svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  outline: 8px ridge rgb(168, 209, 227);
+  border-radius: 2rem;
+  outline-color: rgb(175, 204, 215);
+}
+
+.list-group-item {
+  position: relative;
+  display: relative;
+  padding: var(--bs-list-group-item-padding-y) var(--bs-list-group-item-padding-x);
+  color: var(--bs-list-group-color);
+  text-decoration: none;
+  border-top-width: 5px;
+  background-color: var(--bs-list-group-bg);
+  border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
+  background: rgb(110, 123, 207);
+  background: linear-gradient(90deg, rgb(158, 167, 228) 6%, rgba(221, 255, 249, 1) 50%, rgb(158, 167, 228) 94%);
+}
+
+.list-group-item.list-group-item-success {
+  text-align: center;
+  border-top-left-radius: 50px 50px;
+  border-top-right-radius: 50px 50px;
+  border-bottom-left-radius: 50px 50px;
+  border-bottom-right-radius: 50px 50px;
+}
+
+.list-group-item:first-child {
+  border-bottom-width: 5px;
+  border-top-left-radius: 50px 50px;
+  border-top-right-radius: 50px 50px;
+  border-bottom-left-radius: 50px 50px;
+  border-bottom-right-radius: 50px 50px;
 }
 
