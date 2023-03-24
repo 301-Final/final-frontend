@@ -1,6 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
 import ListGroup from 'react-bootstrap/ListGroup'
+import './Profile.css';
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
