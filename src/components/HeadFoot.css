@@ -12,6 +12,10 @@ footer {
   line-height: 1.1;
 }
 
+header {
+  background-color: aqua;
+}
+
 .title {
   font-size: 40px;
   font-weight: 800;

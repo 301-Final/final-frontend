@@ -32,6 +32,7 @@ class ImBored extends React.Component {
   render() {
 
     return (
+      <div className="bored">
       <Card style={{ width: '18rem' }}>
         <Card.Body>
           <Card.Title>Bored?</Card.Title>
@@ -41,6 +42,7 @@ class ImBored extends React.Component {
           <Button variant="primary" onClick={this.handleSubmit}>Another Activity</Button>
         </Card.Body>
       </Card>
+      </div>
     )
   }
 }
