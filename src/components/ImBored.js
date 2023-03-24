@@ -12,7 +12,7 @@ class ImBored extends React.Component {
 
   getToDo = async () => {
     console.log('in getToDo');
-    let event = await axios.get('http://www.boredapi.com/api/activity/');
+    let event = await axios.get('https://www.boredapi.com/api/activity/');
     console.log(event.data);
     this.setState({
       toDo: event.data.activity
